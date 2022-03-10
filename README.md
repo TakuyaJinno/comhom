@@ -30,5 +30,7 @@ chain(dictionary of cube)
    
 # NOTE
 Index of array which represents matrix starts from 1 (1,2,3,...,N).
-If you want to exchange 1st and 2nd row of matrix B, then rowExchange(B, 1, 2)
+
+If you want to exchange 1st and 2nd row of matrix B, then rowExchange(B, 1, 2).
+
 Lists, tuples, dictionaries etc. are indexed by non-negative sequence (0,1,2,...,N-1).
