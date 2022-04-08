@@ -240,7 +240,7 @@ def homologyGroupOfChainComplex(D): #input: list of nparray, index starts from 0
         H[k] = quotientGroup(W[k], V[k])
     return H # output is list of list
 
-## example of definitions
+## example of defining cubical set variables
 
 # interval(tuple)
 # = (0,1)
@@ -292,12 +292,23 @@ def primaryFace(Q): #input: cube Q
             L.append(tuple(Qtmp))
     return L
 
-def dim(Q): #input: cube Q
+def dim(c): #input: chain or cube c
+    d = 0
+    if (type(c) is tuple):
+        d = dim_cube(c)
+    elif (type(c) is dict):
+        for cube in c.keys():
+            d_tmp = dim_cube(cube)
+            d = max(d,d_tmp)
+    return d
+
+def dim_cube(Q): #input: cube Q
     d = 0
     for interval in Q:
         if interval[0] != interval[1]:
-           d += 1
+            d += 1
     return d
+        # chainの中身それぞれについてdimをとって最大値を返す
 
 def cubicalChainGroups(K):
 # setting E
